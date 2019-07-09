@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造器,为了和普通函数区分开，需要把构造器的首字母大写
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+            /*
+            this.say = function(){
+                return '我是'+this.name + ',今年'+this.age + '岁了';
+            }*/
+            this.say = new Function("return '我是'+this.name + ',今年'+this.age + '岁了'");
+        }
+        
+        //使用new运算符来创建对象
+        var p1 = new Person('小强',6);
+        var p2 = new Person('小毛',7);
+        console.log(p1.say());
+        console.log(p2.say());
+        
+        console.log(typeof p1);
+        console.log(p1.constructor);
+        
+        var obj = {};
+        console.log(p1 instanceof Person); //true
+        console.log(obj instanceof Person); //false
+        /*
+        new 的过程
+        var obj = {} ;空对象
+        obj --> this 
+        执行赋值代码，obj对应的属性都有值了
+        obj.constructor  指向当前函数
+        return obj
+        */
+        
+    </script>
+</body>
+</html>

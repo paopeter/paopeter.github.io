@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Book(title, publisher) {
+            this.title = title;
+            this.publisher = publisher;
+        }
+        Book.prototype.sayTitle = function () {
+            alert(this.title);
+        }
+        var book1 = new Book('High Performence JavasScript', 'Yahoo! Press');
+        var book2 = new Book('JavasScript:The Good Parts', 'Yahoo! Press');
+        
+        
+        
+        
+    </script>
+
+</body>
+
+</html>

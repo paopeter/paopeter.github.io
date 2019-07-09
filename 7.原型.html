@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = {}; //a会继承它原型的属性和方法，所以它具备很多属性和方法
+        var b = null; //单纯，真的是一无所有
+        
+        console.log(a == b); //false
+        
+        console.log(a);
+        console.log(b);
+        
+        //构造器
+        function Person(){}
+        
+        //在Person的原型中添加属性
+        Person.prototype.name = "小明";
+        Person.prototype.age = 5;
+        Person.prototype.say = function(){
+            return '我是'+this.name + ',今年'+this.age + '岁了';
+        }
+        
+        //实例化对象
+        var p1 = new Person();
+        console.log(p1);
+        console.log(p1.say());
+        
+        //判断对象是否是对象的原型
+        
+        console.log(p1.__proto__.isPrototypeOf(p1)); //在某些浏览器中可以使用
+        console.log(Person.prototype.isPrototypeOf(p1)); //在代码中来访问
+        
+        
+        //
+        //Array.prototype.slice
+        var a = new Array();
+        //a.slice(); //可以使用，因为它继承过来了
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //工厂模式
+        function createPerson(name,age){
+            var obj = {};
+            obj.name = name;
+            obj.age = age;
+            obj.say = function (){
+                return "i am person";
+            }
+            return obj;
+        }
+        
+        //生产对象
+        var p1 = createPerson('小明',7);
+        var p2 = createPerson('小强',6);
+        //.....
+        console.log(p1.say());
+        console.log(p2.age);
+        
+        console.log (typeof p1);
+        console.log(p1.constructor);
+    </script>
+</body>
+</html>

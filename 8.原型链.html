@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //原型链
+        function Person(){}
+        
+        //在Person的原型中添加属性
+        Person.prototype.name = "小明";
+        Person.prototype.age = 5;
+        Person.prototype.say = function(){
+            return '我是'+this.name + ',今年'+this.age + '岁了';
+        }
+        
+        
+        var p1 = new Person();
+       
+        
+        console.log(p1.name);
+        //delete(p1.name);
+        console.log(p1.name);
+        
+        p1.name = '小刘';
+        console.log(p1.name.substring(0,1));
+        console.log(p1);
+        
+        var p2 = new Person();
+        console.log(p1.say());
+        
+    </script>
+</body>
+</html>
