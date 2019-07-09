@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0; padding: 0;}
+        #box {width: 730px; height: 454px; margin: 50px auto 0; position: relative;
+        overflow: hidden;}
+        
+        #canvas {width: 5110px; height: 454px; position: absolute; left: 0; top: 0;}
+        #canvas a {float: left; width: 730px; height: 454px;}
+        ul {position: absolute; bottom: 10px; width: 100%; text-align: center;}
+        ul li {display: inline-block; list-style: none; width:20px; height: 20px; border-radius: 10px; background: #999; color: #fff; font-weight: bold;font-size: 14px; text-align: center;line-height: 20px;position:relative;}
+        li.on {background: #c30;}
+    </style>
+    <script src="functions.js"></script>
+</head>
+<body>
+    <div id="box">
+        <div id="canvas">
+            <a href=""><img src="../images/jd1.jpg" alt=""></a>
+            <a href=""><img src="../images/jd2.jpg" alt=""></a>
+            <a href=""><img src="../images/jd3.jpg" alt=""></a>
+            <a href=""><img src="../images/jd4.jpg" alt=""></a>
+            <a href=""><img src="../images/jd5.jpg" alt=""></a>
+            <a href=""><img src="../images/jd6.jpg" alt=""></a>
+            <a href=""><img src="../images/jd1.jpg" alt=""></a>
+        </div>
+        <ul>
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>   
+    <script>
+
+        var t; //定时器
+        var t1 ;
+        var init = 0; //表示当前所在的图片的索引，默认是第一张，为0
+        var move=true;
+        var objCurrentX; 
+        var lis = document.getElementsByTagName('li');
+        var imgs = document.getElementsByTagName('img');
+        var canvas = document.getElementById('canvas');
+        
+        start();
+        //封装一个函数，用于启动动画
+        function start(){
+            move=true;     //设置移动值为真，false时图片暂定移动
+            //clearInterval(t);
+            /*change(init);
+            init++;
+            init %= 6;
+            t=setTimeout(start,2190);*/
+            t = setInterval(function(){
+                //init增加一次
+                //console.log(init);
+                change(init);
+                init++;
+                init %= 6;
+            },2190);
+        }
+
+        //封装一个函数，切换到指定索引的图片,包括大图和小图
+        function change(idx){       //idx，将要改变的第几张图片
+            //大图片切换
+            //canvas.style.left = idx * -730 + "px"; //一定要加单位
+            var x1 =idx*(-730);     //起点位置
+            var x2 =(idx%6+1)*(-730);     //终点位置
+            slide(canvas,x1,x2,1,3);
+            //导航数字的变化
+            for (var i = 0 ; i < 6; i++) {
+                lis[i].className = "";
+            }
+            idx+=1;
+            if(idx==6){idx=0;}
+            lis[idx].className  = "on";
+        }
+
+        //封装一个方法，完成对象的移动
+        //obj，要移动的对象
+        //x1,对象的起始位置
+        //x2,对象的终点位置
+        //s,移动的时间间隔
+        //step,每次移动的步长
+        
+        function slide(obj,x1,x2,s,step) {
+
+            if (x1 < x2) {
+                //右移
+                t1 = setInterval(function(){
+                    if(move){x1 = x1 + step;}
+                    obj.style.left = x1 + "px";
+                    //如果已经到达目标位置，需要停止，注意校正
+                    if (x1 >= x2) {
+                        clearInterval(t1);
+                        obj.style.left = x2 + "px";
+                    }
+                    //在修正最后的obj.style.left后,进行保存，用于li.onmouseover
+                    objCurrentX=obj.offsetLeft;
+                },s);
+            } else {
+                //左移
+                t1 = setInterval(function(){
+                    if(move){x1 -= step;}
+                    obj.style.left = x1 + "px";
+                    //如果已经到达目标位置，需要停止，注意校正
+                    if (x1 <= x2) {
+                        clearInterval(t1);
+                        obj.style.left = x2 + "px";
+                    }
+                    //在修正最后的obj.style.left后,进行保存，用于li.onmouseover
+                    objCurrentX=obj.offsetLeft;
+                },s);
+            }
+        }
+
+        //注册大图片的鼠标移入和移除问题
+        for (var i = 0 ;i < 6 ;i++) {
+            //鼠标放到大图片上时停止动画
+            imgs[i].onmouseover=function(){
+                move=false;
+                clearInterval(t);
+            }
+            //鼠标从大图片上移开时，继续动画
+            imgs[i].onmouseout=function(){
+                    start();
+            }
+        }
+        
+        //对下面的数字索引注册事件
+        for (var j = 0 ;j < 6; j++) {
+            lis[j].index = j;
+            //mouseover事件
+            lis[j].onmouseover=function(){
+                this.style.cursor="pointer";
+                //以下两行代码，共同来停止init和obj.style.left增加，
+                //停止init增加,不在调用change()和slide()
+                clearInterval(t);
+                //清除内存中的obj.style.left,避免给obj.style.left间隔性赋值
+                clearInterval(t1);
+                //canvas.style.left=this.index* -730 +"px";
+                //console.log(objCurrentX);
+                var startX=objCurrentX;
+                var stopX =this.index* -730 ;
+                var time  =2;
+                var step  =(((startX-stopX)>0)?(startX-stopX):(stopX-startX))/500;
+                slide(canvas,startX,stopX,time,step);
+                for (var i = 0 ; i < 6; i++) {
+                    lis[i].className = "";
+                }
+                lis[this.index].className  = "on";
+                
+            }
+            //mouseout事件
+            lis[j].onmouseout = function(){
+                init = this.index;
+                start();
+            }
+        }
+
+
+
+    </script> 
+    
+    
+    
+</body>
+</html>
