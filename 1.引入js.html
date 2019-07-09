@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- 外部引入 -->
+    <script src="out.js"></script>
+</head>
+<body>
+    <!-- 行内引入 -->
+    <p onclick = "alert('行内')";>行内的方式来引入</p>
+    
+     <!-- 协议方式引入 -->
+    <p onclick="javascript:return confirm('确认要删除吗?')">url协议的方式</p>
+    
+    <!--  内联方式-->
+    <script type="text/javascript">
+        alert('内联的方式');
+    </script>
+    
+</body>
+</html>

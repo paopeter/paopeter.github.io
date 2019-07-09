@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .even {background: #ddd;}
+        
+    </style>
+</head>
+<body>
+   <ul>
+       <li>诗经</li>
+       <li>尚书</li>
+       <li>礼记</li>
+       <li>周易</li>
+       <li>春秋</li>
+       <li>javascript</li>
+   </ul>
+    <script>
+        //隔行换色
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0; i < lis.length; i++) {
+            if (i % 2 == 0) {
+                lis[i].className = 'even';
+            } else {
+                lis[i].className = 'odd';
+            }    
+        }       
+        //倒计时，时间的转换
+       
+        //获得一个指定时间的时间戳 2015-10-19
+        var t1 = Date.parse('2015-10-19 23:59:59');
+        var t2 = (new Date).getTime();
+        
+        var t = (t1 - t2) / 1000;
+        
+        //65s  分钟：parseInt(65/60) 秒数： 65%60
+        //3750 s 小时：parseInt(3750/60*60) 分钟： parseInt(3750 % 3600)/60  秒数： 3750 % 3600 % 60
+        
+        var day = parseInt(t / (3600 *24));
+        var h = parseInt(t % (3600 *24) / 3600 );
+        var m = parseInt(t % (3600 *24) % 3600 / 60);
+        var s = parseInt(t % (3600 *24) % 3600 % 60);
+        
+        console.log(day,h,m,s);
+        
+        
+    </script>
+</body>
+</html>

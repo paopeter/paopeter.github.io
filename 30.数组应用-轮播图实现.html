@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 500px;
+            overflow: hidden;
+        }
+        img {
+            width: 300px;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <a href="">上一张</a>
+    <div>
+        <img src="m1.jpg" alt="">
+        <img src="m2.jpg" alt="">
+        <img src="m3.jpg" alt="">
+        <img src="m4.jpg" alt="">
+        <img src="m5.jpg" alt="">
+    </div>
+    <a href="">下一张</a>
+    <script>
+        var as = document.getElementsByTagName('a');
+        var imgs = document.getElementsByTagName('img');
+        var pics = ['m1.jpg','m2.jpg','m3.jpg','m4.jpg','m5.jpg'];
+        as[0].onclick = function(){
+            pics.unshift(pics.pop());
+            for (var i = 0, len = imgs.length; i < len ; i++) {
+                imgs[i].src = pics[i];
+            }
+            return false;
+        }
+        //下一张
+        as[1].onclick = function(){
+            pics.push(pics.shift());
+            for (var i = 0, len = imgs.length; i < len ; i++) {
+                imgs[i].src = pics[i];
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>

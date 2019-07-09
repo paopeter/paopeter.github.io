@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 100; //单个声明
+        var b;      //单个声明，没有赋值，默认值是undefied
+        
+        //一次性声明多个
+        var c = 100,
+            d,
+            e = 'js';
+        console.log(a,b,c,d,e);
+        
+        //重复声明
+        var a; //100 
+        console.log(a,b,c,d,e);
+        
+        var a = 200; // 200
+        console.log(a,b,c,d,e);
+        
+        //遗漏声明
+        f = 250;
+        console.log(f); //250
+        console.log(window.f); //250
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict";
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        
+        //console.log(013);
+        var a = 1.333;
+        var b = .765;
+        var c = 1.5e8;
+        
+        //溢出
+        console.log(Number.MAX_VALUE * 2);
+        console.log(Number.MIN_VALUE/ 10);
+        
+        //整除0的
+        console.log(10 / 0); 
+        
+        //NaN
+        var s = 'js';
+        console.log(parseInt(s));
+        console.log(isNaN(s));
+        
+        console.log(NaN);
+        console.log(NaN == NaN);
+        
+        //运算的不精确性
+        var a = 0.3;
+        var b = 1 - 0.7;
+        
+        console.log(a == b); //false
+        
+    </script>
+</body>
+</html>

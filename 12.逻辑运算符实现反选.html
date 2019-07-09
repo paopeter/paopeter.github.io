@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="全选"> <input type="button" value="反选">
+    
+
+    <ul>
+        <li><input type="checkbox">1</li>
+        <li><input type="checkbox">2</li>
+        <li><input type="checkbox">3</li>
+        <li><input type="checkbox">4</li>
+        <li><input type="checkbox">5</li>
+    </ul>
+    
+    <script>
+        var inputs = document.getElementsByTagName('input');
+        //全选
+        inputs[0].onclick =function(){
+            for (var i = 2; i < inputs.length; i++) {
+                inputs[i].checked = 'true';
+            }
+        }
+        //反选-普通写法
+        /*
+        inputs[1].onclick =function(){
+            for (var i = 2; i < inputs.length; i++) {
+                if (inputs[i].checked) {
+                    inputs[i].checked = false;
+                } else {
+                    inputs[i].checked = true;
+                }
+            }
+        }
+        */
+        //反选-新的版本
+        inputs[1].onclick =function(){
+            for (var i = 2, len = inputs.length; i < len; i++) {
+               inputs[i].checked = !inputs[i].checked;
+            }
+        }
+        
+        
+        var arr = [1,2,3,4,5];
+        
+        var obj = {
+            name : 'javascript',
+            age : 20
+            
+        };
+        
+    
+        
+    </script>
+</body>
+</html>

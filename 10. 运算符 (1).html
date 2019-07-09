@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <a href="" id="test">test</a>
+    <script>
+        //var a = 3 + 4 + 5;
+        
+        //var b = 10 * 5 / 8;
+        
+        //a = b = 5;
+        
+        var a,b,c;
+        
+//        var d = a > b ? a : (b > c ? b :c);
+        
+//        a++;
+        
+        document.getElementById('test').onclick = function(e){
+            var e = e || window.event;
+        }
+        
+        var obj = {
+          name : 'js'  
+        };
+        
+        a = 1;
+        console.log(a || obj);
+        
+        b = 0;
+        console.log(b || obj);
+        
+    </script>
+</body>
+</html>

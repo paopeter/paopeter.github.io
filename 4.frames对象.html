@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var h1 = window.frames['header'].document.getElementsByTagName('h1');
+            alert(h1[0].innerHTML);
+        }
+        
+    </script>
+</head>
+
+<frameset rows="80,*">
+    <frame src="top.html" name ="header">
+    <frameset cols = "180,*" >
+        <frame src='menu.html' name ="menu">
+        <frame src='main.html' name ="main">
+    </frameset>
+</frameset>
+
+
+</html>

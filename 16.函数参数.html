@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数定义
+        function add(a,b) {
+            var c = a + b;
+            return c;
+        }
+        
+        //调用
+        var s = add(250,38);
+        //console.log(s);
+        
+        //如果需要完成任意个数的求和，怎么办？
+        function sum(){
+            console.log(arguments);
+            var s = 0;
+            arguments[0] = 0; //直接修改传递过来的实参
+            for (var i = 0,len = arguments.length; i < len; i++){
+                s+= arguments[i];
+            }
+            return s;
+        }
+        
+        var s1 = sum(250,38,2);
+        console.log(s1);
+        
+    </script>
+</body>
+</html>

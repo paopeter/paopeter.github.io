@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div {
+            width: 500px;
+            margin: 100px auto 0;
+            background: #ddd;
+            border: 10px solid #ccc;
+            padding: 5px 10px;
+            font-size: 12px;
+            line-height: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span>1997年7月，ECMA组织发布262号标准文件（ECMA-262）的第一版，规定了浏览器脚本语言的标准，并将这种语言称为ECMAScript。这个版本就是ECMAScript 1.0版。之所以不叫JavaScript，一方面是由于商标的关系，Java是Sun公司的商标，根据一份授权协议，只有Netscape公司可以合法地使用JavaScript这个名字，且JavaScript已经被Netscape公司注册为商标，另一方面也是想体现这门语言的制定者是ECMA，不是Netscape，这样有利于保证这门语言的开放性和中立性。因此，ECMAScript和JavaScript的关系是，前者是后者的规格，后者是前者的一种实现。在日常场合，这两个词是可以互换的。</span>
+        <a href="">>>> 收缩</a>
+    </div>
+    <script>
+        var span = document.getElementsByTagName('span')[0];
+        var a = document.getElementsByTagName('a')[0];
+        var sw = true; //表示现在的展开或收缩状态，默认展开
+        var content = span.innerHTML;
+        a.onclick = function(){
+            if (sw) {
+                //需要收缩
+                span.innerHTML = content.substring(0,20) + "...";
+                a.innerHTML = ">>> 展开";
+            } else {
+                //需要展开
+                span.innerHTML = content;
+                a.innerHTML = ">>> 收缩";
+            }
+            //状态转换一下
+            sw = !sw;
+            return false; //阻止默认的跳转事件
+        }
+    </script>
+</body>
+</html>

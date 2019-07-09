@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义全局变量
+        var global = "全局";
+        
+        function f1(){
+            var global = 'f1的变量';
+            var local = ' 局部';
+            console.log(global,local);
+        }
+        
+        //f1();
+        //console.log(local); //不能访问
+        //console.log(global);
+        
+        
+        function f2(){
+            global = 'f2的变量';
+            var local = ' 局部';
+            console.log(global,local);
+        }
+        f2();
+        console.log(global);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //使用直接量的方式创建字符串
+        var s = "javascript";
+        
+        //在调用开始的那一刻，使用new得到一个新的对象
+        //s1 = new String(s);
+        //...中间是对s1的操作
+        //调用完毕的那一刻，将这个对象销毁
+        //s1 = null;
+        
+        
+        //console.log(typeof s);
+        //console.log(s);
+        
+        //console.log(s.length);
+        
+        
+        //s.name = 'js';
+        //console.log(s.name);
+        
+        
+        //使用new 的方式来创建一个字符串
+        var s1 = new String('ECMAScript');
+        console.log(typeof s1);
+        console.log(s1);
+        
+        s1.name = "ES";
+        
+        console.log(s1.name);
+        
+        
+    </script>
+</body>
+</html>

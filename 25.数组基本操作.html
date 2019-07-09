@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //读写
+        var a1 = ['大学','中庸','论语','孟子'];
+        console.log(a1[2]);
+        console.log(a1[100]);
+        
+        a1[0] = '小学';
+        console.log(a1);
+        
+        //增加
+        a1[5] = 'JavaScript';
+        console.log(a1);
+        console.log(a1.length);
+        
+        a1.push('PHP');
+        console.log(a1);
+        
+        a1.unshift('mysql');
+        console.log(a1);
+        
+        //删除
+        delete(a1[3]);
+        console.log(a1);
+        console.log(a1.length);
+        
+        a1.pop();
+        console.log(a1);
+        
+        a1.shift();
+        console.log(a1);
+        
+    </script>
+</body>
+</html>

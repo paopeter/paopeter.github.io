@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 100;
+        
+        do {
+            //console.log('循环咯');
+        }while(a > 100)
+        
+        //
+        for (var i = 1; i < 10; i++) {
+            //console.log(i);
+        }
+        
+        //对象的遍历
+        var obj = {
+            
+            name : "js",
+            age : 20
+        };
+        
+        for (var p in obj) {
+            //console.log(p,obj[p]);
+        }
+        
+        //遍历window的属性
+        for (var p in window) {
+            console.log(p);
+        }
+    </script>
+</body>
+</html>

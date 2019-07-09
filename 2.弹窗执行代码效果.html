@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>window对象的应用-弹窗执行代码</h1>
+    <textarea name="" cols="100" rows="30"><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+		.weak {background:#f00;}
+		.medium {background:#ffd800;}
+		.strong {background:#00ff21;}
+		input { height:20px; line-height:20px; width:210px;}
+		span{display:inline-block; width:70px; height:30px; line-height:30px; margin:0 1px; background:#ddd; text-align:center; }
+	</style>
+</head>
+<body>
+    <h1>js中位运算符的运用</h1>
+	<label for="">请输入密码：</label><input type="text" name="pwd" /> <br /><br />
+	<label for="">密 码 强度：</label><span>弱</span><span>中</span><span>强</span>
+	<script>
+        var inputs = document.getElementsByTagName('input');
+        var spans = document.getElementsByTagName('span');
+        inputs[0].onkeyup = function(){
+            
+            var pwd = this.value;
+            console.log(pwd);
+            var result = 0;
+            for (var i = 0, len = pwd.length; i < len; i++) {
+                result |= charType(pwd.charCodeAt(i));
+            }
+            console.log(result);
+            
+            var level = 0;
+            //对result进行四次循环，计算其level
+            for (var j = 0 ; j < 4; j++) {
+                if (result & 1) {
+                    level++;
+                }
+                //右移一位
+                result = result >>> 1;
+            }
+            console.log(level);
+            switch(level) {
+                case 1:
+                    spans[0].className = "weak";
+                    break;
+                case 2:
+                    spans[0].className = "medium";
+                    spans[1].className = "medium";
+                    break;
+                case 3:
+                case 4:
+                    spans[0].className = "strong";
+                    spans[1].className = "strong";
+                    spans[2].className = "strong";
+                    break;
+            }
+        }   
+        //定义一个函数，对给定数值，获取其对应的值，返回1,2,4,8
+        // 数字 0001 -->1  48~57
+        // 小写字母 0010 -->2  97~122
+        // 大写字母 0100 -->4  65~90
+        // 特殊 1000 --> 8 其它
+        function charType(num){
+            if (num >= 48 && num <= 57) {
+                return 1;
+            }
+            if (num >= 97 && num <= 122) {
+                return 2;
+            }
+            if (num >= 65 && num <= 90) {
+                return 4;
+            }
+            return 8;
+        }
+    </script>  
+</body>
+</html></textarea>
+   <br>
+   <input type="button" value="运行">
+    <script>
+        var btn = document.getElementsByTagName('input')[0];
+        var text = document.getElementsByTagName('textarea')[0];
+        btn.onclick = function(){
+            var w1 = window.open('','w2','menubar=yes,status=yes,width=600');
+            w1.document.write(text.value);
+        }
+    </script>
+    
+</body>
+</html>

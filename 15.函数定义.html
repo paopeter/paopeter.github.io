@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(foo);
+        console.log(foo(9)); //会执行
+        //函数声明,声明提升的概念
+        function foo(n){
+            return n * n;
+        }
+        
+        console.log(f);
+        //console.log(f(9)); //会报错
+        //函数表达式
+        var f = function (n){
+            return n * n * n;
+        }
+        
+        //构造器，需要自定义对象时
+        function Person(name,age){
+            this.name = name;
+            this.age = age;
+        }
+        
+        var p1 = new Person('js',20); //函数名以大写开头,和普通函数区分开来
+        console.log(p1);
+        
+        
+        function f2(){
+             
+        }
+        console.log(f2());
+    </script>
+</body>
+</html>
