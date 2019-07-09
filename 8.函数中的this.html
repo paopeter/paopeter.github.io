@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(){
+            console.log(this);
+        }       
+        window.f1(); //window   
+        
+        var obj = {
+            name : 'javascript',
+            age : 20,
+            say : function(){
+                console.log(this);
+            }      
+        };   
+        obj.say(); //obj
+                
+        //构造器
+        function Dog(name,age){
+            this.name = name;
+            this.age = age;
+            this.say = function(){
+                console.log('汪汪');
+                console.log(this);
+            }
+        }
+        
+        var d1 = new Dog('哮天犬',2000);
+        d1.say(); //指向d1
+        
+        
+    </script>
+</body>
+</html>

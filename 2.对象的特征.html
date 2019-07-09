@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            'name' : '小环'
+        }        
+        //给obj定义一个属性age
+        Object.defineProperty(obj,'age',{
+            value : 5,
+            writable : false,//意味着不能重新赋值
+            enumerable: false,// 意味着不能使用for..in来枚举
+            configurable : false //意味着不能删除它
+        });        
+        console.log(obj);
+        obj.age = 50; //不能修改
+        console.log(obj);
+        
+        for (var p in obj) {
+            console.log(p,obj[p]); //不能枚举age
+        }
+        
+        delete(obj.age); //不能删除
+        console.log(obj);
+        
+    </script>
+</body>
+</html>

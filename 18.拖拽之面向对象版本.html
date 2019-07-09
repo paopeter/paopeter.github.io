@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #box {width: 100px; height: 100px; position: absolute; background: #f00;}
+    </style>
+</head>
+<body>
+   <div id="box"></div>
+    <script>
+         var box = document.getElementById('box');
+        //原先的版本
+        /*
+       
+        var x,y,m,n;
+        var sw = false; //开关
+        
+        box.onmousedown =function(e){
+            var e = e || window.event;
+            sw = true;
+            x = e.clientX;
+            y = e.clientY;
+            m = this.offsetLeft;
+            n = this.offsetTop;
+            
+        }
+        
+        document.onmousemove = function(e){
+            var e = e || window.event;
+            if (sw) {
+                box.style.left = e.clientX - x + m +  "px";
+                box.style.top = e.clientY - y + n +  "px";
+            }
+        }
+        
+        document.onmouseup = function(e){
+            sw = false;
+        }
+        */
+        //面向对象版本       
+        function Drag(obj){
+            this.obj = obj;
+            this.disX = 0;
+            this.disY = 0;
+        }
+        
+        //初始化
+        Drag.prototype.init = function(){
+            var _this = this;
+            this.obj.onmousedown = function(e){
+                var e = e || window.event;               
+                this.down(e);
+            }
+        }
+        
+        //鼠标放下的方法
+        Drag.prototype.down = function(e){
+            var _this = this;
+            this.disX = e.clientX - this.obj.offsetLeft;
+            this.disy = e.clientY - this.obj.offsetTop;
+            document.onmousemove = function(e){
+                var e = e || window.event; 
+                _this.move(e);
+            }
+        }
+        
+        //移动方法
+        Drag.prototype.move = function(e){
+            var _this = this;
+            this.obj.style.left = e.clientX - this.disX + "px" ;
+            this.obj.style.top = e.clientY - this.disY + "px" ;
+            document.onmouseup = function(e){
+               _this.up(e);
+                
+            }
+        }
+        
+        //抬起方法
+        Drag.prototype.up = function(){
+            document.onmousemove = null;
+            document.onmouseup = null;
+        }
+        
+        var d1 = new Drag(box);
+        d1.init();
+        
+    </script>
+</body>
+</html>

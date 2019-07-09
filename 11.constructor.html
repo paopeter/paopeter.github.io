@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>       
+        console.log(String.constructor); //Function
+        
+        function f1(){            
+        }
+        console.log(f1.constructor); //Function
+        
+        //怎么理解函数也是一个对象呢
+        //对象可以通过构造器来实例化
+        function f2(a,b){
+            return a+b;
+        }
+        //将f2使用new的方式来定义 【不推荐使用这种方式】
+        var f3 = new Function('a','b','return a+b');
+        console.log(f3(1,2));
+        console.log(f3.constructor); ////Function
+        
+        //其它类型的数据也都有对应的constructor
+        var s = "js";
+        console.log(s.constructor);
+        
+        //length属性
+        function f4(a,b,c){
+        }
+        console.log(f4.length); //3
+        
+        
+    </script>
+</body>
+</html>

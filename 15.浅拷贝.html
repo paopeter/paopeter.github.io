@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //浅拷贝继承
+        var obj1 = {
+            name : '大花',
+            age : 5,
+            friends : ['馒头','花卷','包子','面条']
+        }; 
+        
+        var obj2 = {};
+        
+        //挨个的复制,定义一个方法
+        function extend(obj) {
+            var o = {};
+            for (var p in obj) {
+                o[p] = obj[p]; 
+            }
+            return o;
+        }
+        obj2 = extend(obj1);
+        console.log(obj2);
+        obj1.friends.push('大饼');
+        
+        console.log(obj2);
+        
+    </script>
+</body>
+</html>

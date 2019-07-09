@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = 10;
+        console.log(this.a);
+        console.log(window.a);
+        console.log(a);
+        console.log(this === window);
+        
+        //this.alert('sgsg');
+        
+        b = 200; //给window增加是一个属性 ,不要使用这种写法
+        //this.b = 200 == window.b = 200; 
+        console.log(b);
+        
+        //a和b直接有没有区别呢？
+        delete(a);
+        delete(b);
+        
+        console.log(a,b); //b会被删除，a不会
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //混合模式
+        function Person(name,age) { //构造器
+            this.name = name;
+            this.age = age;
+            //做一个判断，如果Person.prototype.say没有定义，就需要定义一个
+            if (! (typeof Person.prototype.say === 'function')) {
+            //原型的方式添加方法
+                Person.prototype.say = function(){
+                    return this.name + this.age;
+                }
+            }
+        }       
+        //console.log(typeof Person.prototype.say === 'function' );
+        
+        //使用对象
+        var p1 = new Person('小强',7);
+        var p2 = new Person('小龙',8);
+        console.log(p1.say());
+        console.log(p2.say());
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function test(a, b) {
+            var c = 10;
+            function d() {}
+            var e = function _e() {};
+            (function x() {});
+        }
+        test(10); // call
+        
+        /*
+            建立阶段：
+            d : 指向一个函数
+            c : undefined
+            e : undefined
+            a : 10
+            b : undefined
+            arguments: length 10
+        */       
+        /*
+           执行阶段：
+           d : 指向一个函数
+           c : 10
+           e : 执行函数_e
+           a : 10
+           b : undefined
+           arguments: length 10
+        */
+    </script>
+</body>
+
+</html>

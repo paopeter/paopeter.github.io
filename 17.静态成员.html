@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //静态成员
+        function Person(){}
+        
+        //静态属性
+        Person.number = 100;
+        
+        //静态方法
+        Person.f1 = function(){
+            return "f1";
+        }
+        
+        //调用
+        console.log(Person.number);
+        console.log(Person.f1());
+    </script>
+</body>
+</html>

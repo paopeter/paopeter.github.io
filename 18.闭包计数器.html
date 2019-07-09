@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //计数器,很多人共同开发一个功能，需要用到一个计数器，
+        //var count = 0; //全局变量,会造成变量污染
+        
+        function counter (){
+            var cnt = 0;
+            return function(){
+                return ++cnt;
+            }
+        }
+        
+        //外部调用
+        var f1 = counter();
+        console.log(f1());
+        console.log(f1());
+        console.log(f1());
+        
+        
+        
+    </script>
+</body>
+</html>

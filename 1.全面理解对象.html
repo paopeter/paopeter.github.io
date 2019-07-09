@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 属性的基本操作--定义、读取、枚举、修改和删除
+        //定义
+        var obj = {
+            name : '小花',
+            'age' : 5,
+            "say" : function(){
+                return "汪汪";
+            }
+        };        
+        //读取,使用对象名['属性名'],以及对象名.属性名 如果是方法，需要加小括号
+        console.log(obj.name);
+        console.log(obj['age']);
+        console.log(obj.say());        
+        //枚举
+        for (var p in obj) {
+            console.log(p,obj[p]); //不能使用obj.p
+        }        
+        //修改,直接重新赋值即可
+        obj.age = 50;
+        console.log(obj.age);       
+        //删除
+        delete(obj.age);
+        console.log(obj);
+        
+    </script>
+</body>
+</html>

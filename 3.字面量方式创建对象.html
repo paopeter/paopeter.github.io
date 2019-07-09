@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //字面量方式
+        /*
+        格式：对象名 = {
+          属性1 ： 值，
+          属性2 ： 值，
+          .....
+        }
+        属性1 可以加引号，也可以不加，建议加上，加上比较好
+        值，根据实际情况，如果是字符串，当然需要加引号了。函数也是属性。
+        */
+        
+        var dog1 = {
+            "name" : '小花',
+            "age" : 5,
+            "say" : function(){
+                return this.name + this.age;
+            }
+        };
+        
+        console.log(obj.say());
+        
+        var dog2 = {
+            "name" : '小小花',
+            "age" : 8,
+            "say" : function(){
+                return this.name + this.age;
+            }
+        };
+        
+    </script>
+</body>
+</html>

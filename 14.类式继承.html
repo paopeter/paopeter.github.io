@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //类式继承       
+        //父构造器
+        function Animal(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+        //父构造器定义的方法
+        Animal.prototype.breath = function(){
+            return "i am "+this.name+" breathing...";
+        }        
+        //子构造器
+        function Bird(name,age,swing){
+            //借用Animal方法，完成name和age的初始化
+            Animal.call(this,name,age,swing);
+            this.swing = swing;
+        }        
+        //还需要完成方法的继承，要通过原型来完成
+        Bird.prototype = Animal.prototype;
+        Bird.prototype.constructor = Bird;
+        
+        var b = new Bird('神鸟',100,4);
+        console.log(b.breath());
+    </script>
+</body>
+</html>

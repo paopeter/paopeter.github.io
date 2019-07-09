@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //封装---通过闭包实现
+       function counter(){
+           var cnt = 0; //私有的属性
+           function getCnt(){
+               return cnt;
+           }           
+           function setCnt(val) {
+               cnt = val;
+           }          
+           return { //对外的接口
+               getCnt : getCnt, 
+               setCnt : setCnt
+           }          
+       }       
+       var f = counter();
+       console.log(f.getCnt());
+       f.setCnt(100);
+       console.log(f.getCnt());        
+    </script>
+</body>
+</html>

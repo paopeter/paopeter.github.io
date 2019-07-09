@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var s = new String("javascript");
+    console.log(s.substring(0,2));
+    console.log(s);
+    //这里的String其实就是一个构造器，也就是函数
+    //实际上，是js中，所有的方法都是定义在构造器上的，就是通过prototype来实现的。
+    
+    //我们可以为String添加自己的方法（不推荐）
+    String.prototype.f1 = function(){
+        return "我自己定义的f1方法";
+    }
+    
+    console.log(s.f1());
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+        //值传递
+        var a = 3;
+        var b = a;
+        
+        a = 5;
+        //console.log(a,b); //5.3
+        
+        //这是什么传递？
+        var c = [1,2,3];
+        var d = c;
+        c = [4,5,6];
+        //console.log(c,d);
+    </script>    
+    
+    <script type="text/javascript">
+        //这又是什么传递？
+        var a = [2, 3, 4];
+        var b = a;
+        a.push(5);
+        console.log(a, b);
+        //这次呢?
+        a = [3, 4, 5, 6];
+        console.log(a, b);
+     
+    </script>
+</body>
+
+</html>

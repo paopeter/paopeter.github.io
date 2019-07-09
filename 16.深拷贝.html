@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //深拷贝
+        //p是父对象
+        //c是子对象
+        function extend(p,c) {
+            var c = c || {};
+            for (var i in p) {
+                //判断p[i]是否是对象
+                if (typeof p[i] === 'object') {
+                    //判断p[i]是否是数组
+                    c[i] = p[i].constructor === 'Array' ? [] : {};
+                    extend(p[i],c[i]);
+                }else {
+                   c[i] = p[i]; 
+                }         
+            }
+            return c;
+        }
+        
+         var obj1 = {
+            name : '大花',
+            age : 5,
+            friends : ['馒头','花卷','包子','面条']
+        }; 
+        
+        var obj2 = {};
+        obj2 = extend(obj1,obj2);
+        
+        obj1.friends.push('大饼');
+        console.log(obj2);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //正常情况下，我们定义一个对象，包括属性和函数，会这么定义
+        var dog = {
+            name : '小花',
+            age : 5,
+            say : function(){
+                return "我是"+this.name;
+            }
+        }        
+        //console.log(dog.say());       
+        //还有一种需求，人家定义好了函数，作为对象，我只想借用一下。
+        function f1(){
+            //console.log('这是人家定义好的方法f1');
+            console.log(this);
+        }        
+        f1(); //       
+        //dog对象也想调用f1方法
+        //简单方式
+        dog.f1 = f1;
+        //dog.f1();
+        dog.f1 = null;       
+        //新的方式
+        //f1.call(dog);
+        f1.apply(dog);
+    </script>
+    
+    
+    
+    
+</body>
+</html>

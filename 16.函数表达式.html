@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数声明【表达式的方式】
+        
+        //f2(); //ok
+        //f1(); //error
+        var f1 = function(){
+            console.log('f1');
+        }
+       
+        //最常见的函数定义方式，它不是表达式
+        function f2(){
+            console.log('f2');
+        }
+        
+        //如果将上面的f2定义整体作为表达式，赋给一个新的变量，会怎么样？
+        var f3 = function _e(){
+            console.log('f3');
+            console.log(_e);
+        };
+        
+        //调用
+        //f3(); // 能
+        // _e(); // 不能用，它只能在函数内部访问，可以看做是函数的局部变量
+        
+        
+        //立即调用的函数表达式
+        (function(){
+            console.log('f4');
+            //甲的代码......
+        }());
+        
+        
+        
+        
+        
+    </script>
+</body>
+</html>

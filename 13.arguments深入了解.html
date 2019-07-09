@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        
+        function f1(x, y, a) {
+            arguments[2] = 10;
+            console.log(a);
+        }
+        f1(1, 2, 3);
+        //
+        
+        function f2(x, y, a) {
+            arguments[2] = 10;
+            console.log(a);
+        }
+        f2(1, 2);
+
+        function f3(x, y, a) {
+            arguments[2] = 10;
+            console.log(arguments[2]);
+        }
+        f3(1, 2);
+    </script>
+
+
+</body>
+
+</html>

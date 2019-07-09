@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 内部访问外部，ok
+        /*
+        var n = 9999;
+
+        function f1() {　　　　　　　　
+            console.log(n);
+        }
+        
+        f1();
+        */
+        // 外部能访问内部的
+       
+        function f2(){
+            var n = 9999;
+            // 函数内部再定义一个函数
+            var f3 = function(){
+                //访问变量n
+                return n;
+            }
+            //关键在这儿，把f3作为f2的返回值
+            return f3;
+            
+        }
+        
+         /*
+        //更为简单写法
+        
+        function f2(){
+            var n = 9999;
+            return function(){
+                return n;
+            }
+        }*/
+        
+        var foo = f2();
+        console.log(foo());
+        
+        
+        
+    </script>
+</body>
+
+</html>

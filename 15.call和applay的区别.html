@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1(a,b,c) {
+            console.log(a,b,c);
+        }
+                       
+        var obj = {                
+        };
+                        
+        f1.call(obj,3,4,5); //挨个传递参数
+        f1.apply(obj,[3,4,5]); //以数组的形式传递参数
+        
+        //看一个应用
+        var obj1 = {
+            0 : 'a',
+            1 : 'b',
+            2 : 'c',
+            3 : 'd',
+            length : 4
+        };
+        console.log(typeof obj1);
+        console.log(obj1);       
+        //obj1.push('e'); //会报错，没有这个方法
+        
+        var a = Array.prototype.slice.call(obj1,0);
+        
+        console.log(a);
+        a.push('e');
+        console.log(a);
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        var lis = document.getElementsByTagName('li');
+        for (var i = 0, len = lis.length; i< len; i++) {
+            lis[i].onclick = function(num){
+                return function(){
+                    console.log(num);
+                }
+            }(i);
+        }       
+    </script>
+    
+    
+    <script type="text/javascript">
+        function createFunctions() {
+            var result = new Array();
+            for (var i = 0; i < 10; i++) {
+                result[i] = function () {
+                    return i;
+                };
+            }
+            return result;
+        }
+        
+        var fun = createFunctions();
+        for (var j = 0; j < 10; j++) {
+            console.log(fun[j]());
+        }
+    </script>
+
+
+</body>
+
+</html>

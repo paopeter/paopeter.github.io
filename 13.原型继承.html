@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //构造对象的方式不同，决定了使用原型的方式也是不同的
+        
+        //字面量的方式来构造对象
+        var obj1 = {
+            name : '小华',
+            age : 6
+        }; 
+        
+        var obj2 = {};
+        
+        //定义一个方法完成继承
+        function extend(obj){
+            function F(){}; //构造器
+            F.prototype = obj;
+            return new F();
+        }
+        
+        obj2 = extend(obj1);
+        //console.log(obj2.name,obj2.age);
+        
+        //构造器的方式来构造对象
+        function Animal(){}
+        Animal.prototype.name = 'Animal';
+        Animal.prototype.age = 5;
+        
+        function Bird(){}
+        Bird.prototype = Animal.prototype;
+        //校正一下constructor的值
+        Bird.prototype.constructor = Bird;
+        
+        var b = new Bird;
+        console.log(b.name);
+        console.log(b.constructor);
+        
+    </script>
+</body>
+</html>
